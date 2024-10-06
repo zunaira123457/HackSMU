@@ -1,0 +1,5 @@
+Flask==2.1.2
+pymongo[srv]==3.12.1  # For MongoDB connection
+dnspython==2.2.1  # Required for MongoDB Atlas connections
+Flask-Cors==3.0.10  # To handle CORS
+python-dotenv==0.20.0

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Task Tracker</title>
+    <style>
+        .completed {
+            text-decoration: line-through;
+            color: grey;
+        }
+    </style>
+</head>
+<body>
+    <h1>Task Tracker</h1>
+    <ul id="task-list">
+        {% for task in tasks %}
+            <li>
+                <input type="checkbox" id="task-{{ loop.index }}" onchange="toggleTask(this)">
+                <label for="task-{{ loop.index }}">{{ task.task }} at {{ task.location }}</label>
+            </li>
+        {% endfor %}
+    </ul>
+
+
+
+    <script>
+        function toggleTask(checkbox) {
+            const label = checkbox.nextElementSibling;
+            if (checkbox.checked) {
+                label.classList.add('completed');
+            } else {
+                label.classList.remove('completed');
+            }
+        }
+    </script>
+</body>
+</html>
